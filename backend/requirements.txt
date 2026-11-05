@@ -1,9 +1,10 @@
-fastapi
+fastapi~=0.162.0
 uvicorn[standard]
-pydantic-settings
+pydantic-settings~=2.16.2
 anthropic
-sqlalchemy
+sqlalchemy~=2.1.8
 psycopg[binary]
 pgvector
 pytest
 httpx
+pydantic~=2.14.3

@@ -1,13 +1,8 @@
 from fastapi import FastAPI
-from sqlalchemy import text
 
-from app.db import engine
+from app.api.health import router as health_router
+from app.api.v1.router import api_router
 
-app = FastAPI(title="Knowly")
-# uvicorn app.main:app --reload ---> run app
-
-@app.get('/health')
-def health():
-    with engine.connect() as conn:
-        conn.execute(text('SELECT 1'))
-    return {'status':'ok','database':'ok'}
+app = FastAPI(title='Knowly')
+app.include_router(health_router)
+app.include_router(api_router)
